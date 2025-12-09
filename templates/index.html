@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>NAMP Assets Demo</title>
+  <link
+    href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css"
+    rel="stylesheet"
+  />
+  <link
+    href="{{ url_for('static', filename='css/styles.css') }}"
+    rel="stylesheet"
+  />
+  <style>
+    body, html { margin:0; padding:0; height:100%; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    #layer-controls {
+      position:absolute;
+      top:10px; left:10px;
+      background:white;
+      padding:8px;
+      font-family:sans-serif;
+      z-index:10;
+      max-height:80%; overflow-y:auto;
+    }
+    #layer-controls h3 { margin:4px 0; font-size:14px; }
+    #layer-controls div { margin-bottom:8px; }
+  </style>
+</head>
+<body>
+  <!-- 
+    We use data-attributes here so the JS stays pure JS.
+    Jinja simply fills in the numbers, VSCode won't see stray `{}`.
+  -->
+  <div
+    id="map"
+    data-center-lng="{{ center_lon }}"
+    data-center-lat="{{ center_lat }}"
+    data-zoom="{{ zoom_level }}"
+  ></div>
+
+  <div id="layer-controls">
+    <div id="vector-layers"><h3>Vector Layers</h3></div>
+    <div id="raster-layers"><h3>Raster & Base Maps</h3></div>
+    <div id="global-buttons">
+      <button id="selectAll">Select All</button>
+      <button id="deselectAll">Deselect All</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+  <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+</body>
+</html>

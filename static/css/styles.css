@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  #map {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+  }
+  
+  #layer-controls {
+    position: absolute;
+    top: 10px;
+    right: auto;   /* ← move it to the right */
+    /*left: auto;    /* ← cancel any left positioning */
+    background: white;
+    padding: 8px;
+    font-family: sans-serif;
+    z-index: 10;
+    max-height: 80%;
+    overflow-y: auto;
+  }
+  
+  
+  #layer-controls h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+  }
+  
+  #layer-controls div {
+    margin-bottom: 5px;
+  }
+  
+  #global-buttons {
+    margin-top: 10px;
+  }
+  
